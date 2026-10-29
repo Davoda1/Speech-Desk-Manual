@@ -1,10 +1,13 @@
 name: Deploy manual to GitHub Pages
 
 on:
+  push:
+    branches: [master]
   workflow_dispatch:
 
 permissions:
   contents: read
+  pages: read
 
 concurrency:
   group: github-pages
