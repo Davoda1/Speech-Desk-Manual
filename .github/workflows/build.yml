@@ -1,0 +1,42 @@
+name: Build manual
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: manual-checks-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Build and validate documentation
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v7.1.0
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -r requirements.txt
+      - run: python scripts/build.py
+      - run: python scripts/check.py
+      - name: Check JavaScript syntax
+        run: |
+          node --check assets/theme.js
+          node --check assets/manual.js
+      - uses: actions/upload-artifact@v7.0.2
+        with:
+          name: speechdesk-manual
+          path: dist/
+          include-hidden-files: true
+          if-no-files-found: error
+          retention-days: 14
