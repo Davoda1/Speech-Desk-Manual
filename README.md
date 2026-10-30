@@ -4,7 +4,7 @@ The user manual for [SpeechDesk](https://github.com/Davoda1/Speech-Desk), a nati
 
 [Read the manual](https://davoda1.github.io/Speech-Desk-Manual/) · [Download SpeechDesk](https://github.com/Davoda1/Speech-Desk/releases)
 
-The website covers installation, speech providers, playback, dictation, optional model packs, settings and troubleshooting. It uses ordinary HTML pages with a persistent chapter navigation, on-page contents and browser-only search. All fonts, images, styles and scripts are local; the site has no analytics, external embeds or runtime dependencies.
+The website covers installation, speech providers, playback, dictation, optional model packs, encrypted API-key storage, settings and troubleshooting. It uses ordinary HTML pages with a persistent chapter navigation, on-page contents and browser-only search. All fonts, images, styles and scripts are local; the site has no analytics, external embeds or runtime dependencies.
 
 ![SpeechDesk manual website](docs/extras/manual-preview.jpg)
 
@@ -22,7 +22,7 @@ Open `dist/index.html` directly, or serve `dist/` with a static web server. The 
 
 ## Edit the manual
 
-Write article content in `content/`. Page order and titles live in `scripts/build.py`; site styling and behavior live in `assets/`. Rebuild after editing. Content describes SpeechDesk **1.0.0**; check instructions against the application before documenting a later version.
+Write article content in `content/`. Page order and titles live in `scripts/build.py`; site styling and behavior live in `assets/`. Rebuild after editing. Content describes SpeechDesk **1.1.0**; check instructions against the application before documenting a later version.
 
 The included screenshots show the application, not a separate browser implementation. The website stores only its chosen color theme in the browser. Search queries stay in the browser.
 

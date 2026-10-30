@@ -6,7 +6,7 @@ Open **Settings → Servers** and select a **Provider**. Enter your own API key 
 
 | Provider | Setup details |
 | --- | --- |
-| OpenAI | Uses the provider's HTTP speech API and a supported speech model and voice |
+| OpenAI | Defaults to `gpt-realtime-2.1-mini` with the `marin` voice, using the Realtime speech connection |
 | ElevenLabs | Uses a speech model ID and a voice ID available to your account |
 | OpenRouter | Lists speech-capable models; voice choices can differ between models |
 
@@ -14,7 +14,7 @@ The presets supply each provider's service address and connection type. Use a pr
 
 Provider accounts, API access, limits, billing, model availability, and retention policies are controlled by the provider. SpeechDesk sends the requested text and speech options to that service. Playback is AI-generated speech.
 
-Keys remain available only for the current application session. Switching providers or editing the server address clears the current key so it is not reused for a different destination.
+Keys are session-only by default. Each profile can optionally keep an encrypted key, unlocked with a passphrase when needed. Saved settings and exported profiles never contain the plaintext key. Switching providers or editing the service address prevents the current key from being reused for the new destination. See [Saved API keys](settings.html#saved-api-keys).
 
 ## Find models and voices
 
@@ -34,9 +34,15 @@ Automatic discovery checks the server's API description and model/voice endpoint
 
 Use **Advanced…** only when the service requires custom paths, request fields, or response mappings. The [server profile reference](server-profiles.html) describes those options and their limits.
 
-## API compatibility
+## OpenAI Realtime and legacy models
 
-SpeechDesk 1.0.0 implements OpenAI's HTTP speech endpoint. The documented retirement date for those Speech API models is **6 January 2027**; the replacement Realtime protocol needs a future adapter. Check the [official deprecation schedule](https://developers.openai.com/api/docs/deprecations) before relying on a model.
+SpeechDesk 1.1.0 uses OpenAI's Realtime API for supported `gpt-realtime-2.1` models, including the default `gpt-realtime-2.1-mini`. This connection sends the text to be read, not microphone audio. Dictation remains local.
+
+Each speech section is buffered before playback. SpeechDesk compares the service's final transcript with the requested text, allowing differences in letter case, whitespace, and equivalent Unicode representation. If the transcript is missing or differs, that section is rejected with an error instead of being played. Punctuation or number-format changes can also cause rejection, even when the spoken wording might be acceptable. The check compares the reported transcript; it is not an independent analysis of the audio.
+
+Legacy OpenAI models—`tts-1`, `tts-1-hd`, and `gpt-4o-mini-tts`, including their dated versions—use `/v1/audio/speech` until their retirement. From **6 January 2027 (UTC)**, SpeechDesk hides these models from discovery and rejects requests for them on the official OpenAI service. Choose a supported Realtime model or another provider. This retirement rule does not disable similarly named models on self-hosted compatible servers.
+
+See [OpenAI's deprecation schedule](https://developers.openai.com/api/docs/deprecations) for provider changes and the [server profile reference](server-profiles.html#openai-realtime) for the transport details.
 
 For any provider, service features outside the supported adapter—such as voice cloning or a different streaming protocol—are not enabled merely by entering the service address.
 

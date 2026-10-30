@@ -10,9 +10,15 @@ Dictation turns microphone recordings or audio files into text on your own compu
 
 Allow microphone access in your operating system if permission is requested. Playback and dictation cannot run at the same time.
 
-With **Live text** enabled, SpeechDesk periodically inserts provisional words while you speak. The final result after Stop recording may change them. With Live text disabled, recognition begins after recording stops.
+The dictation controls stay centered and adapt to the window width, keeping their full labels visible. The button always reads **Live text**. When enabled, it uses a light blue fill in light mode and a dark blue fill in dark mode; when disabled, its fill is neutral. With Live text enabled, SpeechDesk periodically inserts provisional words while you speak. The final result after Stop recording may change them. With Live text disabled, recognition begins after recording stops.
 
 Choose **Cancel** to discard the current dictation and restore the previous text and selection. An error or an empty final result also preserves the original text. After successful insertion, **Ctrl+Z** undoes that dictation in one action.
+
+## Read the microphone meter
+
+When the dictation panel is open, a microphone level meter is centered in the bottom status row. During recording it expands outward from the middle as the input level rises. The two halves mirror one mono input level; they do not represent separate left and right channels.
+
+Use the meter to see whether sound is reaching the selected microphone. It is a level indicator, not a measure of transcription accuracy. If it stays still while you speak, check the device selection and microphone permission.
 
 ## Choose a model
 

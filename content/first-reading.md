@@ -8,7 +8,7 @@ For a hosted provider, enter that provider's API key in the dedicated **API key*
 
 > Text requested for speech is sent to this service. Hosted API requests may incur charges. Dictation remains local.
 
-API keys are retained for the current application session only. You will need to enter them again after restarting SpeechDesk.
+API keys are session-only by default. You can optionally save a profile's key encrypted with a passphrase; after restarting, unlock it when needed. The passphrase is never stored. See [Saved API keys](settings.html#saved-api-keys) before enabling this option.
 
 ## 2. Select a speech model and voice
 
@@ -34,7 +34,7 @@ Choose **Speak** to read the editor's text. To read only an excerpt, select that
 
 Use **Pause** and **Resume** to control local playback, or **Stop** to end it. Adjust **Volume** if needed. The position slider moves within the currently playing section.
 
-Speech is prepared in sections, so there may be a wait before playback begins. The active passage is highlighted. Individual words are highlighted only when the service returns usable timing data.
+Speech is prepared in sections, so there may be a wait before playback begins. **Reading part N of M** shows which part is playing; the position slider and time display refer to that part. The active passage is highlighted. Individual words are highlighted only when the service returns usable timing data.
 
 ## 5. Save what you need
 

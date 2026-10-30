@@ -4,7 +4,7 @@ Start with a short piece of non-sensitive text or a brief recording. Check the s
 
 | Symptom | Check |
 | --- | --- |
-| Authentication error | Enter the correct provider key again; keys are cleared when the application restarts |
+| Authentication error | Enter the correct provider key, or unlock the saved key for that profile |
 | Access or credit error | Check the provider account's API access, available credit, and permitted model |
 | Model or voice rejected | Use a speech-capable model and a voice supported by that exact model |
 | Connection failure | Check the service address and whether the server is running and reachable |
@@ -14,11 +14,27 @@ Hosted presets use their provider's fixed address. For another endpoint, choose 
 
 If the address changed, re-enter the key in its dedicated field. SpeechDesk deliberately clears credentials when switching providers or editing the address.
 
+## A saved key will not unlock
+
+Check that you selected the intended server profile and entered its passphrase correctly. A failed unlock does not overwrite or remove the saved credential. If the credential file is damaged, retrying will not repair it.
+
+There is no passphrase reset or recovery. Use **Replace saved key…** for that profile, supply a valid API key and a new passphrase with confirmation, then choose Settings **Save**. Other profiles do not need to be reset. If saving fails, the previous encrypted record remains intact.
+
+If you prefer not to save a key, turn **Save API key encrypted** off for that profile and choose **Save**, then use a session-only key. This removes only its saved credential. Cancelling Settings leaves pending credential changes unapplied. See [Saved API keys](settings.html#saved-api-keys).
+
 ## Detection returns no models
 
 **Detect capabilities** uses discovery endpoints that a service may not provide. An empty result does not by itself mean that speech synthesis is impossible.
 
 Select the documented connection type and enter the model and voice IDs manually. Then try a short reading. Detection alone does not prove that a synthesis request works.
+
+## OpenAI Realtime rejects a reading
+
+SpeechDesk waits for a complete audio section and its final transcript. If the transcript differs from the submitted text, that section is rejected instead of played. Differences in punctuation or number formatting can trigger this check; only letter case, whitespace, and equivalent Unicode representation are normalized.
+
+Try a shorter section or another speech provider. Do not assume an error means your original text was changed in the editor. SpeechDesk sends the source text unchanged and validates the returned transcript.
+
+On and after 6 January 2027 (UTC), the official OpenAI service's retired legacy speech models are also blocked. Select `gpt-realtime-2.1-mini` or another supported provider. See [OpenAI model compatibility](providers.html#openai-realtime-and-legacy-models).
 
 ## There is no playback sound
 
