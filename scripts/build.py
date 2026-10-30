@@ -5,13 +5,14 @@ import html
 import json
 import re
 import shutil
+import struct
 import markdown
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / 'dist'
 APP = 'https://github.com/Davoda1/Speech-Desk'
 REPO = 'https://github.com/Davoda1/Speech-Desk-Manual'
-VERSION = '1.1.0'
+VERSION = '1.1.1'
 PAGES = [
     ('Getting started', 'overview', 'Introduction', 'SpeechDesk manual'),
     ('Getting started', 'installation', 'Installation', 'Install SpeechDesk'),
@@ -44,6 +45,22 @@ def nav(current):
 SEARCH_ICON='<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 4.5 4.5"/></svg>'
 THEME_ICON='<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.4 1.4m11.2 11.2L19 19M5 19l1.4-1.4M17.6 6.4 19 5"/></svg>'
 
+def size_screenshots(article):
+    """Reserve each local PNG's real dimensions before it loads."""
+    def size_image(match):
+        tag=match.group(0)
+        source=re.search(r'\bsrc="(assets/[^"<>]+\.png)"',tag)
+        if not source: return tag
+        tag=tag.replace(f'src="{source.group(1)}"',f'src="{source.group(1)}?v={VERSION}"',1)
+        if re.search(r'\b(?:width|height)=',tag): return tag
+        with (ROOT/source.group(1)).open('rb') as stream: header=stream.read(24)
+        if len(header)!=24 or header[:8]!=b'\x89PNG\r\n\x1a\n':
+            raise ValueError('Invalid screenshot PNG: '+source.group(1))
+        width,height=struct.unpack('>II',header[16:24])
+        ending='/>' if tag.endswith('/>') else '>'
+        return tag[:-len(ending)].rstrip()+f' width="{width}" height="{height}"'+ending
+    return re.sub(r'<img\b[^>]*>',size_image,article)
+
 def build():
     OUT.mkdir(exist_ok=True)
     shutil.copytree(ROOT/'assets',OUT/'assets',dirs_exist_ok=True)
@@ -51,7 +68,7 @@ def build():
     for position,(category,slug,label,title) in enumerate(PAGES):
         source=(ROOT/'content'/f'{slug}.md').read_text(encoding='utf-8')
         md=markdown.Markdown(extensions=['tables','fenced_code','toc'],extension_configs={'toc':{'permalink':False}})
-        article=md.convert(source)
+        article=size_screenshots(md.convert(source))
         # Tables retain semantic headers and scroll only within their own region.
         article=re.sub(r'(<table>.*?</table>)',r'<div class="table-scroll" tabindex="0">\1</div>',article,flags=re.S)
         article=re.sub(r'<p>', '<p class="lead">', article, count=1)
@@ -78,9 +95,9 @@ def build():
 <meta name="color-scheme" content="light dark">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="assets/manual.css">
-<script src="assets/theme.js"></script>
-<script src="assets/search-index.js" defer></script><script src="assets/manual.js" defer></script>
+<link rel="stylesheet" href="assets/manual.css?v={VERSION}">
+<script src="assets/theme.js?v={VERSION}"></script>
+<script src="assets/search-index.js?v={VERSION}" defer></script><script src="assets/manual.js?v={VERSION}" defer></script>
 </head>
 <body data-page="{slug}">
 <a class="skip-link" href="#main">Skip to content</a>

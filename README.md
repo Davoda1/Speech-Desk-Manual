@@ -22,9 +22,9 @@ Open `dist/index.html` directly, or serve `dist/` with a static web server. The 
 
 ## Edit the manual
 
-Write article content in `content/`. Page order and titles live in `scripts/build.py`; site styling and behavior live in `assets/`. Rebuild after editing. Content describes SpeechDesk **1.1.0**; check instructions against the application before documenting a later version.
+Write article content in `content/`. Page order and titles live in `scripts/build.py`; site styling and behavior live in `assets/`. Rebuild after editing. Content describes SpeechDesk **1.1.1**; check instructions against the application before documenting a later version.
 
-The included screenshots show the application, not a separate browser implementation. The website stores only its chosen color theme in the browser. Search queries stay in the browser.
+The included screenshots show the application, not a separate browser implementation. Editor, dictation, Servers, and About views each have a light and a dark image; the visible image follows the website theme, including Follow system. Paired images use one shared description and CSS hides the inactive image from both the page and accessibility tree. The website stores only its chosen color theme in the browser. Search queries stay in the browser.
 
 ## Hosting
 
