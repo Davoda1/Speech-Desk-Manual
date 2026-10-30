@@ -1,5 +1,7 @@
 Open Settings to adjust appearance, manage speech profiles, and configure local recognition. Choose **Save** to apply preference changes or **Cancel** to discard them.
 
+Choose **Settings → About → Manual** to open this online manual in your browser.
+
 ## Appearance
 
 | Setting | Effect |
