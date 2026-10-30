@@ -10,7 +10,11 @@ Dictation turns microphone recordings or audio files into text on your own compu
 
 Allow microphone access in your operating system if permission is requested. Playback and dictation cannot run at the same time.
 
-Dictation selectors and action buttons form separate centered groups that adapt to the window width. The selectors keep their full text visible. The button always reads **Live text**. When enabled, it uses a light blue fill in light mode and a dark blue fill in dark mode; when disabled, its fill is neutral. With Live text enabled, SpeechDesk periodically inserts provisional words while you speak. The final result after Stop recording may change them. With Live text disabled, recognition begins after recording stops.
+The dictation toolbar sits in an inset panel that follows the application's light or dark theme. Its model, language, and microphone selectors expand across the available width and keep their full text visible. Action buttons form a compact, centered group on a separate row below.
+
+In a compact window, exceptionally long selector labels wrap and may require vertical scrolling within the selector area. The action buttons remain visible below it.
+
+The button always reads **Live text**. When enabled, it uses a light blue fill in light mode and a dark blue fill in dark mode; when disabled, its fill is neutral. With Live text enabled, SpeechDesk periodically inserts provisional words while you speak. The final result after Stop recording may change them. With Live text disabled, recognition begins after recording stops.
 
 Choose **Cancel** to discard the current dictation and restore the previous text and selection. An error or an empty final result also preserves the original text. After successful insertion, **Ctrl+Z** undoes that dictation in one action.
 
@@ -19,7 +23,7 @@ Choose **Cancel** to discard the current dictation and restore the previous text
 <figure class="theme-screenshot">
 <img class="screenshot-light" src="assets/dictation-light.png" alt="SpeechDesk with the dictation panel open, showing recognition model, language, microphone, recording controls, and the centered level meter." loading="lazy" decoding="async">
 <img class="screenshot-dark" src="assets/dictation-dark.png" alt="SpeechDesk with the dictation panel open, showing recognition model, language, microphone, recording controls, and the centered level meter." loading="lazy" decoding="async">
-<figcaption>Dictation selectors and action buttons are centered in separate groups. The microphone meter sits in the bottom status row.</figcaption>
+<figcaption>The inset panel holds a full-width selector row and a compact, centered action row. The microphone meter sits in the bottom status row.</figcaption>
 </figure>
 
 ## Read the microphone meter
@@ -35,7 +39,7 @@ The normal application packages include four models:
 | Model | When to consider it |
 | --- | --- |
 | Whistle | Compact recognition for English, German, French, Spanish, Italian, Dutch, and Polish |
-| Whisper Tiny Q5_1 | A small multilingual model, including Hungarian |
+| Whisper Tiny Q5_1 | A small multilingual model |
 | Whisper Base Q5_1 | Another multilingual option |
 | Whisper Small Q5_1 | A larger multilingual model |
 

@@ -24,7 +24,7 @@ A speech service is needed for reading aloud, but it is not needed for local dic
 
 ## New in 1.1.1
 
-Version 1.1.1 keeps the full text visible in speech and dictation selectors. Dictation selectors and action buttons are centered in separate groups. This manual now includes updated editor, dictation, and Settings screenshots that follow the website's light or dark theme. See the [release notes](release-notes.html) for the changes.
+Version 1.1.1 keeps the full text visible in speech and dictation selectors. The dictation selectors expand across the available width, with action buttons centered on the row below. This manual now includes updated editor, dictation, and Settings screenshots that follow the website's light or dark theme. See the [release notes](release-notes.html) for the changes.
 
 ## Find an answer
 

@@ -13,6 +13,7 @@ OUT = ROOT / 'dist'
 APP = 'https://github.com/Davoda1/Speech-Desk'
 REPO = 'https://github.com/Davoda1/Speech-Desk-Manual'
 VERSION = '1.1.1'
+ASSET_VERSION = '1.1.1-2'
 PAGES = [
     ('Getting started', 'overview', 'Introduction', 'SpeechDesk manual'),
     ('Getting started', 'installation', 'Installation', 'Install SpeechDesk'),
@@ -51,7 +52,7 @@ def size_screenshots(article):
         tag=match.group(0)
         source=re.search(r'\bsrc="(assets/[^"<>]+\.png)"',tag)
         if not source: return tag
-        tag=tag.replace(f'src="{source.group(1)}"',f'src="{source.group(1)}?v={VERSION}"',1)
+        tag=tag.replace(f'src="{source.group(1)}"',f'src="{source.group(1)}?v={ASSET_VERSION}"',1)
         if re.search(r'\b(?:width|height)=',tag): return tag
         with (ROOT/source.group(1)).open('rb') as stream: header=stream.read(24)
         if len(header)!=24 or header[:8]!=b'\x89PNG\r\n\x1a\n':
@@ -95,9 +96,9 @@ def build():
 <meta name="color-scheme" content="light dark">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="assets/manual.css?v={VERSION}">
-<script src="assets/theme.js?v={VERSION}"></script>
-<script src="assets/search-index.js?v={VERSION}" defer></script><script src="assets/manual.js?v={VERSION}" defer></script>
+<link rel="stylesheet" href="assets/manual.css?v={ASSET_VERSION}">
+<script src="assets/theme.js?v={ASSET_VERSION}"></script>
+<script src="assets/search-index.js?v={ASSET_VERSION}" defer></script><script src="assets/manual.js?v={ASSET_VERSION}" defer></script>
 </head>
 <body data-page="{slug}">
 <a class="skip-link" href="#main">Skip to content</a>
