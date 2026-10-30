@@ -11,6 +11,7 @@ ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / 'dist'
 APP = 'https://github.com/Davoda1/Speech-Desk'
 REPO = 'https://github.com/Davoda1/Speech-Desk-Manual'
+VERSION = '1.1.0'
 PAGES = [
     ('Getting started', 'overview', 'Introduction', 'SpeechDesk manual'),
     ('Getting started', 'installation', 'Installation', 'Install SpeechDesk'),
@@ -87,7 +88,7 @@ def build():
  <div class="header-inner">
   <a class="brand" href="index.html" aria-label="SpeechDesk manual home"><img src="assets/favicon.svg" width="30" height="30" alt=""><span>SpeechDesk</span></a>
   <span class="header-divider" aria-hidden="true"></span><span class="site-label">Manual</span>
-  <nav class="header-links" aria-label="Project"><a href="{APP}/releases/tag/v1.0.0" aria-label="Download SpeechDesk 1.0.0">Downloads <span aria-hidden="true">↗</span></a><a href="{APP}">GitHub <span aria-hidden="true">↗</span></a></nav>
+  <nav class="header-links" aria-label="Project"><a href="{APP}/releases/tag/v{VERSION}" aria-label="Download SpeechDesk {VERSION}">Downloads <span aria-hidden="true">↗</span></a><a href="{APP}">GitHub <span aria-hidden="true">↗</span></a></nav>
   <button class="icon-button mobile-search search-trigger" aria-label="Search manual">{SEARCH_ICON}</button>
   <button class="icon-button theme-toggle" aria-label="Change color theme" title="Change color theme">{THEME_ICON}</button>
  </div>
@@ -96,12 +97,12 @@ def build():
  <aside class="sidebar" aria-label="Manual navigation">
   <button class="search-trigger search-button">{SEARCH_ICON}<span>Search manual</span><kbd>/</kbd></button>
   <nav aria-label="Chapters">{nav(slug)}</nav>
-  <div class="sidebar-meta"><span class="version-label">Version 1.0.0</span><span>Windows &amp; Linux</span></div>
+  <div class="sidebar-meta"><span class="version-label">Version {VERSION}</span><span>Windows &amp; Linux</span></div>
  </aside>
  <div class="mobile-navigation"><details><summary>Browse manual <span>{html.escape(label)}</span></summary><nav aria-label="Mobile chapters">{nav(slug)}</nav></details></div>
  <main id="main" tabindex="-1">
   <div class="breadcrumb"><a href="index.html">Manual</a><span aria-hidden="true">/</span><span>{category}</span></div>
-  <article><header class="article-header"><p class="edition">SpeechDesk 1.0.0</p><h1>{title}</h1></header>{article}</article>
+  <article><header class="article-header"><p class="edition">SpeechDesk {VERSION}</p><h1>{title}</h1></header>{article}</article>
   <nav class="page-navigation" aria-label="Adjacent chapters">{''.join(pager)}</nav>
   <footer class="article-footer"><span>SpeechDesk documentation · © 2026 davoda1</span><a href="{REPO}/blob/master/content/{slug}.md">View page source <span aria-hidden="true">↗</span></a></footer>
  </main>

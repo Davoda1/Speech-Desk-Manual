@@ -1,4 +1,4 @@
-SpeechDesk is a Windows and Linux desktop application for reading text aloud and turning recorded speech into editable text. This manual covers version **1.0.0**.
+SpeechDesk is a Windows and Linux desktop application for reading text aloud and turning recorded speech into editable text. This manual covers version **1.1.0**.
 
 ## Start here
 
@@ -21,8 +21,12 @@ SpeechDesk is a Windows and Linux desktop application for reading text aloud and
 
 A speech service is needed for reading aloud, but it is not needed for local dictation. A general chat model or chat endpoint cannot necessarily generate speech.
 
+## New in 1.1.0
+
+Optionally keep each profile's API key encrypted behind a passphrase, use OpenAI's supported Realtime speech models, and follow clearer microphone and reading-progress indicators. See the [release notes](release-notes.html) for the changes and compatibility details.
+
 ## Find an answer
 
 The [playback guide](playback.html) explains selection reading, pause, highlighting, and audio export. [Provider setup](providers.html) covers accounts, model IDs, and self-hosted connections. Use [troubleshooting](troubleshooting.html) for connection, playback, microphone, and model-import problems.
 
-For downloads, see the [SpeechDesk 1.0.0 release](https://github.com/Davoda1/Speech-Desk/releases/tag/v1.0.0). Read [privacy and data handling](privacy.html) before sending confidential text to a speech provider.
+For downloads, see the [SpeechDesk 1.1.0 release](https://github.com/Davoda1/Speech-Desk/releases/tag/v1.1.0). Read [privacy and data handling](privacy.html) before sending confidential text to a speech provider.
