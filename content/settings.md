@@ -19,7 +19,21 @@ Give each profile a useful **Profile name**, then select its provider, address, 
 
 **Detect capabilities** requests discovery information. **Advanced…** opens the JSON profile for custom endpoints and mappings. **Import…** and **Export…** work with profile configuration files. Review an imported profile before using it.
 
-The dedicated **API key** field is session-only and is excluded from saved settings and exported profiles. Changing providers or editing the service address clears the current key. Custom headers and request-body fields may be saved; keep credentials out of them.
+Enter credentials in the dedicated **API key** field. Keys are session-only unless you explicitly enable encrypted saving for that profile. Plaintext keys are excluded from settings and profile exports. Changing providers or editing the service address prevents reuse of the current key for the new destination. Custom headers and request-body fields may be saved; keep credentials out of them.
+
+## Saved API keys
+
+Encrypted saving is optional and separate for each server profile. Leave **Save API key encrypted** off to keep a key for the current session only.
+
+To save a key, enter it in **API key**, enable **Save API key encrypted**, and provide a passphrase of at least **12 characters** and confirmation when prompted. Choose **Save** in Settings to commit the encrypted credential. The passphrase is never stored.
+
+After restarting SpeechDesk, the saved key remains locked. Choose **Unlock…** and enter that profile's passphrase, or unlock when prompted to use it. **Lock now** immediately removes only the selected profile's unlocked key from use. It does not delete the encrypted file or affect other profiles. This explicit lock still applies if you later cancel Settings.
+
+A wrong passphrase or a damaged credential file does not overwrite or delete the saved key. There is no passphrase reset or key recovery. Use **Replace saved key…** to enter a valid API key, which can be the same key or a replacement from your provider, and a new passphrase with confirmation. Choose Settings **Save** to replace only that profile's credential.
+
+Turning **Save API key encrypted** off and choosing **Save** removes the profile's stored key. A session-only key can still be used. New saves, replacements, and removals are pending until Settings Save; **Cancel** discards these pending changes. A failed save preserves the previous saved credential.
+
+Profile exports contain no API keys, encrypted credential files, or passphrases. Encrypted files are stored in the `credentials` subdirectory of SpeechDesk's configuration directory. This feature works without an operating-system keychain. Read [Privacy and data](privacy.html#encrypted-key-storage) for its protection and limitations.
 
 ## Request limits
 
@@ -40,7 +54,7 @@ Follow the service's own limits. Increasing a timeout does not make a server fas
 
 Preferences and installed models use `%AppData%\Speech-Desk` on Windows or `$XDG_CONFIG_HOME/Speech-Desk` on Linux, normally `~/.config/Speech-Desk`.
 
-The editor's text and generated audio are not automatically retained. Use their explicit save actions for anything you want to keep. API keys must be entered again after an application restart.
+The editor's text and generated audio are not automatically retained. Use their explicit save actions for anything you want to keep. Session-only API keys must be entered again after a restart. Encrypted keys require their passphrase before use.
 
 ## Appearance example
 

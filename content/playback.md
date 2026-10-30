@@ -8,11 +8,15 @@ Choose **Speak** to read all text. Select an excerpt first to read only that sel
 
 **Save text…** writes the editor's contents as a UTF-8 TXT file. It does not save the generated speech.
 
-## Understand speech sections
+## Follow reading progress
 
 SpeechDesk divides a reading at sentence and paragraph boundaries. Long sentences are split at the profile's section limit, which defaults to **500 characters**. This can affect pauses and phrasing.
 
 Each section is buffered before it plays. The application prepares the next section ahead of playback where possible. This is not immediate playback of every arriving audio fragment.
+
+**Reading part N of M** identifies the part currently playing and the total number of parts in this reading. Pausing changes the label to **Paused · part N of M**. The position slider and time display apply to the current part; they are not a position within the complete reading. The part count is hidden when idle.
+
+OpenAI Realtime also waits for a final transcript and compares it with the requested text before playing the section. A mismatch, including a punctuation or number-format difference, produces an error. See [Provider setup](providers.html#openai-realtime-and-legacy-models).
 
 The section size and request timeout are available in **Settings → Servers → Request limits**. Smaller sections may help with provider limits or long waits; they also create more separate requests.
 
