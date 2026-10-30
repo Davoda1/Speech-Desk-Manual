@@ -1,6 +1,13 @@
-SpeechDesk 1.1.0 adds optional encrypted API-key storage, an OpenAI Realtime speech connection, and clearer recording and playback controls.
+SpeechDesk 1.1.1 corrects text visibility in speech and dictation selectors and the alignment of dictation controls. This manual also adds refreshed application screenshots that follow its selected theme.
 
-## Changes in 1.1.0
+## Changes in 1.1.1
+
+- **Full selector text:** speech and dictation selectors keep their complete text visible as the window width changes.
+- **Centered layout:** dictation selectors and action buttons form separate centered groups, with consistent button heights and a clear Live text state.
+- **Updated manual screenshots:** the editor, dictation panel, Servers tab, and About tab are illustrated in both themes. Each page shows the screenshot matching the website's current theme, including Follow system.
+- **Documentation tooling:** the manual build now uses Markdown 3.8.1.
+
+## Features introduced in 1.1.0
 
 - **Optional encrypted API keys:** save a key separately for each server profile using a passphrase. Session-only keys remain the default; no operating-system keychain is required.
 - **Explicit credential controls:** unlock a saved key on demand, lock the selected profile immediately, or replace a credential when its passphrase is forgotten. New saves, replacements, and removals are committed with Settings Save.
@@ -25,4 +32,4 @@ OpenAI Realtime transcript matching is intentionally conservative: punctuation a
 
 Build and test results are recorded in the [software repository's workflows](https://github.com/Davoda1/Speech-Desk/actions). Automated checks do not establish physical microphone or speaker behavior on every desktop. Direct OpenAI account integration has not been tested live for this release. Provider availability, model access, retention, and billing remain subject to the selected service.
 
-[Download SpeechDesk 1.1.0](https://github.com/Davoda1/Speech-Desk/releases/tag/v1.1.0).
+[Download SpeechDesk 1.1.1](https://github.com/Davoda1/Speech-Desk/releases/tag/v1.1.1).

@@ -10,9 +10,17 @@ Dictation turns microphone recordings or audio files into text on your own compu
 
 Allow microphone access in your operating system if permission is requested. Playback and dictation cannot run at the same time.
 
-The dictation controls stay centered and adapt to the window width, keeping their full labels visible. The button always reads **Live text**. When enabled, it uses a light blue fill in light mode and a dark blue fill in dark mode; when disabled, its fill is neutral. With Live text enabled, SpeechDesk periodically inserts provisional words while you speak. The final result after Stop recording may change them. With Live text disabled, recognition begins after recording stops.
+Dictation selectors and action buttons form separate centered groups that adapt to the window width. The selectors keep their full text visible. The button always reads **Live text**. When enabled, it uses a light blue fill in light mode and a dark blue fill in dark mode; when disabled, its fill is neutral. With Live text enabled, SpeechDesk periodically inserts provisional words while you speak. The final result after Stop recording may change them. With Live text disabled, recognition begins after recording stops.
 
 Choose **Cancel** to discard the current dictation and restore the previous text and selection. An error or an empty final result also preserves the original text. After successful insertion, **Ctrl+Z** undoes that dictation in one action.
+
+## Dictation controls
+
+<figure class="theme-screenshot">
+<img class="screenshot-light" src="assets/dictation-light.png" alt="SpeechDesk with the dictation panel open, showing recognition model, language, microphone, recording controls, and the centered level meter." loading="lazy" decoding="async">
+<img class="screenshot-dark" src="assets/dictation-dark.png" alt="SpeechDesk with the dictation panel open, showing recognition model, language, microphone, recording controls, and the centered level meter." loading="lazy" decoding="async">
+<figcaption>Dictation selectors and action buttons are centered in separate groups. The microphone meter sits in the bottom status row.</figcaption>
+</figure>
 
 ## Read the microphone meter
 

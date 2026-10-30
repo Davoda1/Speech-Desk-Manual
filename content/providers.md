@@ -36,7 +36,7 @@ Use **Advanced…** only when the service requires custom paths, request fields,
 
 ## OpenAI Realtime and legacy models
 
-SpeechDesk 1.1.0 uses OpenAI's Realtime API for supported `gpt-realtime-2.1` models, including the default `gpt-realtime-2.1-mini`. This connection sends the text to be read, not microphone audio. Dictation remains local.
+SpeechDesk 1.1.1 uses OpenAI's Realtime API for supported `gpt-realtime-2.1` models, including the default `gpt-realtime-2.1-mini`. This connection sends the text to be read, not microphone audio. Dictation remains local.
 
 Each speech section is buffered before playback. SpeechDesk compares the service's final transcript with the requested text, allowing differences in letter case, whitespace, and equivalent Unicode representation. If the transcript is missing or differs, that section is rejected with an error instead of being played. Punctuation or number-format changes can also cause rejection, even when the spoken wording might be acceptable. The check compares the reported transcript; it is not an independent analysis of the audio.
 

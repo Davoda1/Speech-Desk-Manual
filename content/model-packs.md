@@ -2,12 +2,12 @@ Two optional ZIP packs add larger Whisper models to local dictation. The four bu
 
 ## Available packs
 
-Download the complete ZIP from the [SpeechDesk 1.1.0 release](https://github.com/Davoda1/Speech-Desk/releases/tag/v1.1.0).
+Download the complete ZIP from the [SpeechDesk 1.1.1 release](https://github.com/Davoda1/Speech-Desk/releases/tag/v1.1.1).
 
 | Model | Download | Model weight size |
 | --- | --- | --- |
-| Whisper Large v3 Turbo | `SpeechDesk-1.1.0-Whisper-Large-v3-Turbo-Expansion.zip` | 574,041,195 bytes |
-| Whisper Large v3 | `SpeechDesk-1.1.0-Whisper-Large-v3-Expansion.zip` | 1,081,140,203 bytes |
+| Whisper Large v3 Turbo | `SpeechDesk-1.1.1-Whisper-Large-v3-Turbo-Expansion.zip` | 574,041,195 bytes |
+| Whisper Large v3 | `SpeechDesk-1.1.1-Whisper-Large-v3-Expansion.zip` | 1,081,140,203 bytes |
 
 Each download is **one complete ZIP**. These weights are not included in the ordinary application or source archives. The same pack can be imported on Windows and Linux, but each computer needs its own installation.
 

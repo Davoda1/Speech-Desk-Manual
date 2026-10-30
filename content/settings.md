@@ -23,6 +23,12 @@ Give each profile a useful **Profile name**, then select its provider, address, 
 
 Enter credentials in the dedicated **API key** field. Keys are session-only unless you explicitly enable encrypted saving for that profile. Plaintext keys are excluded from settings and profile exports. Changing providers or editing the service address prevents reuse of the current key for the new destination. Custom headers and request-body fields may be saved; keep credentials out of them.
 
+<figure class="theme-screenshot">
+<img class="screenshot-light" src="assets/settings-servers-light.png" alt="SpeechDesk Settings on the Servers tab, showing provider fields and encrypted API-key controls without credentials." loading="lazy" decoding="async">
+<img class="screenshot-dark" src="assets/settings-servers-dark.png" alt="SpeechDesk Settings on the Servers tab, showing provider fields and encrypted API-key controls without credentials." loading="lazy" decoding="async">
+<figcaption>The Servers tab combines connection details and per-profile key protection.</figcaption>
+</figure>
+
 ## Saved API keys
 
 Encrypted saving is optional and separate for each server profile. Leave **Save API key encrypted** off to keep a key for the current session only.
@@ -58,8 +64,12 @@ Preferences and installed models use `%AppData%\Speech-Desk` on Windows or `$XDG
 
 The editor's text and generated audio are not automatically retained. Use their explicit save actions for anything you want to keep. Session-only API keys must be entered again after a restart. Encrypted keys require their passphrase before use.
 
-## Appearance example
+## About and online help
 
-![SpeechDesk using the dark appearance](assets/speechdesk-dark.png)
+The **About** tab shows the installed application version and a **Manual** button. Choose Manual to open the online documentation in your default browser.
 
-The application can use a light appearance, a dark appearance, or follow the operating system.
+<figure class="theme-screenshot">
+<img class="screenshot-light" src="assets/settings-about-light.png" alt="SpeechDesk Settings on the About tab, showing version information and the Manual button." loading="lazy" decoding="async">
+<img class="screenshot-dark" src="assets/settings-about-dark.png" alt="SpeechDesk Settings on the About tab, showing version information and the Manual button." loading="lazy" decoding="async">
+<figcaption>The About tab provides the application version and a direct link to the manual.</figcaption>
+</figure>

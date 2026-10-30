@@ -2,13 +2,13 @@ Download the package for your operating system, keep its included files together
 
 ## Choose a package
 
-All downloads are attached to the [SpeechDesk 1.1.0 release](https://github.com/Davoda1/Speech-Desk/releases/tag/v1.1.0).
+All downloads are attached to the [SpeechDesk 1.1.1 release](https://github.com/Davoda1/Speech-Desk/releases/tag/v1.1.1).
 
 | System | Package |
 | --- | --- |
-| Windows 10/11, x64 | `SpeechDesk-1.1.0-Windows-x64.zip` |
-| Linux, amd64, portable | `SpeechDesk-1.1.0-Linux-amd64.tar.gz` |
-| Debian-family Linux, amd64 | `SpeechDesk-1.1.0-Linux-amd64.deb` |
+| Windows 10/11, x64 | `SpeechDesk-1.1.1-Windows-x64.zip` |
+| Linux, amd64, portable | `SpeechDesk-1.1.1-Linux-amd64.tar.gz` |
+| Debian-family Linux, amd64 | `SpeechDesk-1.1.1-Linux-amd64.deb` |
 
 The source archives are for building the application. They do not contain the downloaded recognition models or generated native engines.
 
@@ -29,7 +29,7 @@ For the portable package, extract the archive and run the top-level `speechdesk`
 For the Debian package, open it with your package manager or run this command from the download directory:
 
 ```sh
-sudo apt install ./SpeechDesk-1.1.0-Linux-amd64.deb
+sudo apt install ./SpeechDesk-1.1.1-Linux-amd64.deb
 ```
 
 The package installs the real executable at `/usr/bin/speechdesk`. Launch SpeechDesk from your application menu or run `speechdesk` in a terminal.
@@ -43,13 +43,13 @@ The release provides one **SHA256SUM.txt** file covering the downloadable assets
 On Windows, PowerShell can calculate the hash:
 
 ```powershell
-Get-FileHash .\SpeechDesk-1.1.0-Windows-x64.zip -Algorithm SHA256
+Get-FileHash .\SpeechDesk-1.1.1-Windows-x64.zip -Algorithm SHA256
 ```
 
 On Linux:
 
 ```sh
-sha256sum SpeechDesk-1.1.0-Linux-amd64.tar.gz
+sha256sum SpeechDesk-1.1.1-Linux-amd64.tar.gz
 ```
 
 Do not install a file whose hash differs. Download it again from the release page.
