@@ -3,7 +3,7 @@ SpeechDesk 1.1.1 corrects text visibility in speech and dictation selectors and 
 ## Changes in 1.1.1
 
 - **Full selector text:** speech and dictation selectors keep their complete text visible as the window width changes.
-- **Centered layout:** dictation selectors and action buttons form separate centered groups, with consistent button heights and a clear Live text state.
+- **Dictation layout:** an inset panel adapts to the application's light or dark theme. Model, language, and microphone selectors expand across the available width, while action buttons form a compact, centered group on a separate row below. Labels remain fully visible, with consistent button heights and a clear Live text state.
 - **Updated manual screenshots:** the editor, dictation panel, Servers tab, and About tab are illustrated in both themes. Each page shows the screenshot matching the website's current theme, including Follow system.
 - **Documentation tooling:** the manual build now uses Markdown 3.8.1.
 
