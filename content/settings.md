@@ -11,15 +11,15 @@ Choose **Settings → About → Manual** to open this online manual in your brow
 | **Highlight the text being read** | Show the active words or passage during playback |
 | **Keep the current sentence in view** | Follow the active passage as playback advances |
 
-Word highlighting depends on timing information supplied by the speech service. Without usable word timings, SpeechDesk highlights the current sentence or section. See [Playback](playback.html) for details.
+Built-in speech uses passage highlighting. Word highlighting depends on timing information supplied by a speech service. Without usable word timings, SpeechDesk highlights the current sentence or section. See [Playback](playback.html) for details.
 
 ## Server profiles
 
-The **Servers** tab stores connection settings. Use **Add** to create a profile or **Remove** to delete one. At least one profile remains; its address can be left empty if you do not want to configure speech playback yet.
+The **Servers** tab manages built-in and service profiles. Use **Add** to create a profile or **Remove** to delete one. At least one profile remains. Select **Built-in / Offline** to use the included Pocket TTS or Kokoro model without a service address or key.
 
-Give each profile a useful **Profile name**, then select its provider, address, model, and voice. Hosted presets use fixed provider addresses. The [provider guide](providers.html) explains the differences between hosted and self-hosted services.
+Give each profile a useful **Profile name**, then select its provider, model, and voice. The main window also lets you select the current profile, model, and voice. Network, credential, and Advanced fields are disabled for built-in speech; its model and voice use dropdown catalogs. Service profiles additionally use an address; hosted presets use fixed provider addresses. The [provider guide](providers.html) describes the built-in catalogs and service setup.
 
-**Detect capabilities** requests discovery information. **Advanced…** opens the JSON profile for custom endpoints and mappings. **Import…** and **Export…** work with profile configuration files. Review an imported profile before using it.
+For service profiles, **Detect capabilities** requests discovery information. Built-in catalogs are available locally. **Advanced…** opens the JSON profile for custom endpoints and mappings. **Import…** and **Export…** work with profile configuration files. Review an imported profile before using it.
 
 Enter credentials in the dedicated **API key** field. Keys are session-only unless you explicitly enable encrypted saving for that profile. Plaintext keys are excluded from settings and profile exports. Changing providers or editing the service address prevents reuse of the current key for the new destination. Custom headers and request-body fields may be saved; keep credentials out of them.
 
@@ -45,12 +45,12 @@ Profile exports contain no API keys, encrypted credential files, or passphrases.
 
 ## Request limits
 
-Two controls set how SpeechDesk sends text to a speech service:
+Two controls set how SpeechDesk prepares speech sections and how long it allows generation or a service request to take:
 
 - **Timeout:** 10–1,800 seconds, with a default of 180 seconds.
 - **Characters per section:** normally 80–8,000, with a default of 500. The OpenAI preset limits this field to 4,096.
 
-Follow the service's own limits. Increasing a timeout does not make a server faster, and increasing section size may increase the wait before playback. SpeechDesk divides text at sentence and paragraph boundaries where possible.
+For service profiles, follow the service's own limits. Increasing a timeout does not speed up synthesis, and increasing section size may increase the wait before playback. SpeechDesk divides text at sentence and paragraph boundaries where possible.
 
 ## Dictation
 

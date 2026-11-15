@@ -1,4 +1,4 @@
-SpeechDesk keeps speech recognition local. Reading text aloud sends that text to the speech service you choose, which may be a hosted provider or your own server.
+SpeechDesk keeps speech recognition local. Built-in Pocket TTS and Kokoro also generate speech on your computer. Selecting a hosted provider or your own speech server sends the requested text to that service.
 
 ## Where processing happens
 
@@ -6,13 +6,14 @@ SpeechDesk keeps speech recognition local. Reading text aloud sends that text to
 | --- | --- |
 | Microphone dictation | Recording and recognition take place on your computer |
 | Audio-file transcription | The selected file is processed locally |
-| Text-to-speech request | Requested text and synthesis options are sent to the configured service |
+| Built-in text to speech | Pocket TTS or Kokoro processes the requested text locally on the CPU |
+| Hosted or private-server text to speech | Requested text and synthesis options are sent to the configured service |
 | Playback | Returned speech is played inside the application |
 | Text or audio export | A file is written when you choose the save action |
 
 Provider logging, retention, account access, and billing are governed by that service. Configure a suitable service before using sensitive text. A private server address does not by itself establish that the server keeps data private.
 
-The application does not include telemetry and does not automatically download recognition models. Larger models are installed through explicit ZIP imports.
+The application does not include telemetry or automatically download models. Built-in TTS models and their runtimes are included with the application packages; larger dictation models are installed through explicit ZIP imports. Built-in synthesis needs no account, key, or network connection.
 
 ## Credentials and profiles
 
@@ -38,7 +39,7 @@ See [Saved API keys](settings.html#saved-api-keys) for the controls.
 
 Use HTTPS for hosted services. SpeechDesk retains normal TLS certificate checks and does not follow HTTP redirects; enter the final service address.
 
-Endpoint paths and returned audio URLs must stay on the configured origin: the same scheme, hostname, and effective port. These restrictions apply to custom profiles as well as built-in adapters.
+Endpoint paths and returned audio URLs must stay on the configured origin: the same scheme, hostname, and effective port. These restrictions apply to custom HTTP profiles as well as the hosted service adapters. Built-in / Offline synthesis does not use a service endpoint.
 
 ## Local files and cleanup
 

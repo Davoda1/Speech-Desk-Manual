@@ -12,8 +12,8 @@ ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / 'dist'
 APP = 'https://github.com/Davoda1/Speech-Desk'
 REPO = 'https://github.com/Davoda1/Speech-Desk-Manual'
-VERSION = '1.1.1'
-ASSET_VERSION = '1.1.1-2'
+VERSION = '2.0.0'
+ASSET_VERSION = '2.0.0'
 PAGES = [
     ('Getting started', 'overview', 'Introduction', 'SpeechDesk manual'),
     ('Getting started', 'installation', 'Installation', 'Install SpeechDesk'),

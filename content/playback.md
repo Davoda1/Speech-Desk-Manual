@@ -12,7 +12,7 @@ Choose **Speak** to read all text. Select an excerpt first to read only that sel
 
 SpeechDesk divides a reading at sentence and paragraph boundaries. Long sentences are split at the profile's section limit, which defaults to **500 characters**. This can affect pauses and phrasing.
 
-Each section is buffered before it plays. The application prepares the next section ahead of playback where possible. This is not immediate playback of every arriving audio fragment.
+Built-in models generate each section locally on the CPU; service profiles request it from the configured endpoint. Each section is buffered before it plays. The application prepares the next section ahead of playback where possible. This is not immediate playback of every arriving audio fragment.
 
 **Reading part N of M** identifies the part currently playing and the total number of parts in this reading. Pausing changes the label to **Paused · part N of M**. The position slider and time display apply to the current part; they are not a position within the complete reading. The part count is hidden when idle.
 
@@ -30,13 +30,13 @@ The section size and request timeout are available in **Settings → Servers →
 | Position slider | Seeks within the current section |
 | **Volume** | Adjusts playback volume |
 
-Pausing playback does not pause generation on the server. Stopping cannot guarantee that a remote provider cancels a request it has already accepted or stops charging for it.
+Pausing playback does not pause synthesis. **Stop** cancels pending built-in generation. For a remote service, stopping cannot guarantee that the provider cancels a request it has already accepted or stops charging for it.
 
 After completion, Speak can reuse the cached reading while the text, selection, and effective speech profile remain unchanged. Starting another reading replaces that cache. Save audio before closing the application if you want to keep it.
 
 ## Follow the text
 
-SpeechDesk uses word timings supplied by the service when they can be matched to the requested text. Otherwise, it highlights the current sentence or section for the duration of that audio. It does not estimate a moving word highlight.
+Pocket TTS and Kokoro use sentence or section highlighting. For service profiles, SpeechDesk uses supplied word timings when they can be matched to the requested text. Otherwise, it highlights the current sentence or section for the duration of that audio. It does not estimate a moving word highlight.
 
 In **Settings → Appearance**, you can turn off **Highlight the text being read** or **Keep the current sentence in view** independently.
 
@@ -44,6 +44,6 @@ In **Settings → Appearance**, you can turn off **Highlight the text being read
 
 **Save audio…** becomes available after every section has completed. It combines the reading into a WAV file with **48 kHz, mono, 16-bit PCM** audio.
 
-Export requires a working decoder for the service's returned format. If conversion fails, check that the provider is returning a supported audio format. A partially completed reading cannot be exported as the complete reading.
+Built-in models produce WAV audio. Service profiles require a working decoder for the returned format. If conversion fails, check that the provider is returning a supported audio format. A partially completed reading cannot be exported as the complete reading.
 
 See [Keyboard shortcuts](shortcuts.html) for quick access to playback and save actions.
