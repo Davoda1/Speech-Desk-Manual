@@ -1,5 +1,13 @@
 Start with a short piece of non-sensitive text or a brief recording. Check the status message in SpeechDesk and use the matching guidance below.
 
+## Built-in speech does not start
+
+Choose **Built-in / Offline** and select a model with one of its listed voices. Pocket and Kokoro are English models. Keep the complete extracted package together, including its `resources` directory; moving only the executable leaves the models and runtimes behind.
+
+If an asset is missing or damaged, verify the release archive against **SHA256SUM.txt** and extract a fresh complete copy. The application does not download missing files automatically. You do not need to install system Python, start a speech server, enter a key, or install GPU drivers for built-in speech.
+
+Model loading and CPU generation can take time, especially for the first section. Try a short paragraph and smaller sections, close memory-heavy applications, and use **Stop** to cancel. On Linux, preserve executable permissions when extracting the archive.
+
 ## A speech request fails
 
 | Symptom | Check |
@@ -38,7 +46,7 @@ On and after 6 January 2027 (UTC), the official OpenAI service's retired legacy 
 
 ## There is no playback sound
 
-Check SpeechDesk's volume, the operating-system output device and application volume controls. Wait for the current speech section to finish downloading; each section is buffered before playback.
+Check SpeechDesk's volume, the operating-system output device and application volume controls. Wait for the current speech section to finish generating or downloading; each section is buffered before playback.
 
 If the service returned an unsupported format or malformed audio, use a format documented by that service and supported by the adapter. Keep all bundled libraries and plugins beside the portable application; copying only the executable can break multimedia support.
 

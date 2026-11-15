@@ -1,4 +1,4 @@
-These shortcuts are available in the desktop application. Playback and dictation actions still depend on the current task and whether a service or recording device is ready.
+These shortcuts are available in the desktop application. Playback and dictation actions still depend on the current task and whether the selected speech provider or recording device is ready.
 
 ## Application shortcuts
 

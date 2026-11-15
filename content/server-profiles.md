@@ -1,4 +1,6 @@
-Profiles describe how SpeechDesk connects to a speech service. They do not install a model, start a server, or make a text-chat endpoint synthesize audio. Use **Settings → Servers** for ordinary connection fields and **Advanced…** for documented JSON mappings.
+This reference describes service profiles and their advanced mappings. Use **Settings → Servers** for ordinary connection fields and **Advanced…** for documented JSON mappings. These service profiles do not install a model, start a server, or make a text-chat endpoint synthesize audio.
+
+**Built-in / Offline** is a separate local provider with `provider` and `adapter` set to `builtin`, `model` set to `pocket` or `kokoro`, and a voice from that model's installed catalog. It uses bundled CPU workers and requires no HTTP endpoint or credentials. See [Built-in speech](providers.html#built-in-offline-speech); the HTTP mappings below apply to service profiles.
 
 ## Hosted providers
 
@@ -41,7 +43,7 @@ A missing discovery endpoint is not a definitive failure: choose the connection 
 | --- | --- |
 | `name`, `id` | Display name and profile identity |
 | `baseUrl` | HTTP/HTTPS server address; no embedded credentials, query or fragment |
-| `adapter` | `auto`, `openai`, `openrouter`, `elevenlabs`, `vllm`, `kokoro`, or `custom` |
+| `adapter` | `auto`, `openai`, `openrouter`, `elevenlabs`, `vllm`, `kokoro`, or `custom` for a service; `builtin` for local synthesis |
 | `apiKey` | Runtime provider API key (Bearer or `xi-api-key`); never included in saved settings or exports |
 | `model`, `voice` | Server's model and predefined/saved voice IDs |
 | `speechPath` | `/v1/audio/speech` for compatible HTTP speech APIs |
